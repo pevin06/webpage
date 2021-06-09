@@ -1,4 +1,4 @@
-"""project8 URL Configuration
+"""project6 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -16,8 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+from project8 import settings
+from django.conf.urls.static import static
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('project8app.urls')),
-    path('project8s/',include('project8s.urls')),
+    path('',include('project8app.urls'))
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
