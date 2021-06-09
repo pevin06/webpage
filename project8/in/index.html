@@ -3,7 +3,7 @@
 <html lang="en">
 {% csrf_token %}
 <head>
-<title>About us</title>
+<title>My project</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="My new project">
@@ -86,7 +86,7 @@
 			</ul>
 		</div>
 		<div class="menu_social">
-			<div class="menu_phone ml-auto">Call us: 00-56 445 678 33</div>
+			<div class="menu_phone ml-auto">Call us: 83-30 06 32 62</div>
 			<ul class="d-flex flex-row align-items-start justify-content-start">
 				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
 				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -216,58 +216,60 @@
 			<div class="row why_row">
 				
 				<!-- Why item -->
+				{% for i in result %}
 				<div class="col-lg-4 why_col">
 					<div class="why_item">
 						<div class="why_image">
-							<img src="{% static 'images/why_1.jpg' %}" alt="">
+							<img src="{{i.img.url}}" alt="">
 							<div class="why_icon d-flex flex-column align-items-center justify-content-center">
 								<img src="{% static 'images/why_1.svg' %}" alt="">
 							</div>
 						</div>
 						<div class="why_content text-center">
-							<div class="why_title">Fast Services</div>
+							<div class="why_title">{{i.name}}</div>
 							<div class="why_text">
-								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>
+								<p>{{i.desc}}</p>
 							</div>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 
 				<!-- Why item -->
-				<div class="col-lg-4 why_col">
-					<div class="why_item">
-						<div class="why_image">
-							<img src="{% static 'images/why_2.jpg' %}" alt="">
-							<div class="why_icon d-flex flex-column align-items-center justify-content-center">
-								<img src="{% static 'images/why_2.svg' %}" alt="">
-							</div>
-						</div>
-						<div class="why_content text-center">
-							<div class="why_title">Great Team</div>
-							<div class="why_text">
-								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>
-							</div>
-						</div>
-					</div>
-				</div>
+<!--				<div class="col-lg-4 why_col">-->
+<!--					<div class="why_item">-->
+<!--						<div class="why_image">-->
+<!--							<img src="{% static 'images/why_2.jpg' %}" alt="">-->
+<!--							<div class="why_icon d-flex flex-column align-items-center justify-content-center">-->
+<!--								<img src="{% static 'images/why_2.svg' %}" alt="">-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="why_content text-center">-->
+<!--							<div class="why_title">Great Team</div>-->
+<!--							<div class="why_text">-->
+<!--								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
 
 				<!-- Why item -->
-				<div class="col-lg-4 why_col">
-					<div class="why_item">
-						<div class="why_image">
-							<img src="{% static 'images/why_3.jpg' %}" alt="">
-							<div class="why_icon d-flex flex-column align-items-center justify-content-center">
-								<img src="{% static 'images/why_3.svg' %}" alt="">
-							</div>
-						</div>
-						<div class="why_content text-center">
-							<div class="why_title">Best Deals</div>
-							<div class="why_text">
-								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>
-							</div>
-						</div>
-					</div>
-				</div>
+<!--				<div class="col-lg-4 why_col">-->
+<!--					<div class="why_item">-->
+<!--						<div class="why_image">-->
+<!--							<img src="{% static 'images/why_3.jpg' %}" alt="">-->
+<!--							<div class="why_icon d-flex flex-column align-items-center justify-content-center">-->
+<!--								<img src="{% static 'images/why_3.svg' %}" alt="">-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="why_content text-center">-->
+<!--							<div class="why_title">Best Deals</div>-->
+<!--							<div class="why_text">-->
+<!--								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
 
 			</div>
 		</div>
@@ -286,56 +288,58 @@
 			<div class="row team_row">
 				
 				<!-- Team Item -->
+				{% for i in any %}
 				<div class="col-xl-3 col-md-6 team_col">
 					<div class="team_item d-flex flex-column align-items-center justify-content-start text-center">
-						<div class="team_image"><img src="{% static 'images/team_1.jpg' %}" alt=""></div>
+						<div class="team_image"><img src="{{ i.imag.url }}" alt=""></div>
 						<div class="team_content">
-							<div class="team_title"><a href="#">Margaret Smith</a></div>
+							<div class="team_title"><a href="#">{{ i.title }}</a></div>
 							<div class="team_text">
-								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.</p>
+								<p>{{i.des}}</p>
 							</div>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 
 				<!-- Team Item -->
-				<div class="col-xl-3 col-md-6 team_col">
-					<div class="team_item d-flex flex-column align-items-center justify-content-start text-center">
-						<div class="team_image"><img src="{% static 'images/team_2.jpg' %}" alt=""></div>
-						<div class="team_content">
-							<div class="team_title"><a href="#">James Williams</a></div>
-							<div class="team_text">
-								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.</p>
-							</div>
-						</div>
-					</div>
-				</div>
+<!--				<div class="col-xl-3 col-md-6 team_col">-->
+<!--					<div class="team_item d-flex flex-column align-items-center justify-content-start text-center">-->
+<!--						<div class="team_image"><img src="{% static 'images/team_2.jpg' %}" alt=""></div>-->
+<!--						<div class="team_content">-->
+<!--							<div class="team_title"><a href="#">James Williams</a></div>-->
+<!--							<div class="team_text">-->
+<!--								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.</p>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
 
-				<!-- Team Item -->
-				<div class="col-xl-3 col-md-6 team_col">
-					<div class="team_item d-flex flex-column align-items-center justify-content-start text-center">
-						<div class="team_image"><img src="{% static 'images/team_3.jpg' %}" alt=""></div>
-						<div class="team_content">
-							<div class="team_title"><a href="#">Michael James</a></div>
-							<div class="team_text">
-								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.</p>
-							</div>
-						</div>
-					</div>
-				</div>
+<!--				&lt;!&ndash; Team Item &ndash;&gt;-->
+<!--				<div class="col-xl-3 col-md-6 team_col">-->
+<!--					<div class="team_item d-flex flex-column align-items-center justify-content-start text-center">-->
+<!--						<div class="team_image"><img src="{% static 'images/team_3.jpg' %}" alt=""></div>-->
+<!--						<div class="team_content">-->
+<!--							<div class="team_title"><a href="#">Michael James</a></div>-->
+<!--							<div class="team_text">-->
+<!--								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.</p>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
 
-				<!-- Team Item -->
-				<div class="col-xl-3 col-md-6 team_col">
-					<div class="team_item d-flex flex-column align-items-center justify-content-start text-center">
-						<div class="team_image"><img src="{% static 'images/team_4.jpg' %}" alt=""></div>
-						<div class="team_content">
-							<div class="team_title"><a href="#">Noah Smith</a></div>
-							<div class="team_text">
-								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.</p>
-							</div>
-						</div>
-					</div>
-				</div>
+<!--				&lt;!&ndash; Team Item &ndash;&gt;-->
+<!--				<div class="col-xl-3 col-md-6 team_col">-->
+<!--					<div class="team_item d-flex flex-column align-items-center justify-content-start text-center">-->
+<!--						<div class="team_image"><img src="{% static 'images/team_4.jpg' %}" alt=""></div>-->
+<!--						<div class="team_content">-->
+<!--							<div class="team_title"><a href="#">Noah Smith</a></div>-->
+<!--							<div class="team_text">-->
+<!--								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.</p>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
 
 			</div>
 		</div>
@@ -403,7 +407,7 @@
 								<div class="footer_contact_title">send us a message</div>
 								<div class="footer_contact_list">
 									<ul>
-										<li>youremail@gmail.com</li>
+										<li>pevinjohn06@gmail.com</li>
 										<li>Office@yourbusinessname.com</li>
 									</ul>
 								</div>
